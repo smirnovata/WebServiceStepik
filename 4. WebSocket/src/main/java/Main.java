@@ -12,12 +12,12 @@ public class Main {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new WebSocketChatServlet()), "/chat");
 
-        ResourceHandler resource_handler = new ResourceHandler();
-        resource_handler.setDirectoriesListed(true);
-        resource_handler.setResourceBase("public");
+        ResourceHandler resourceHandler = new ResourceHandler();
+        resourceHandler.setDirectoriesListed(true);
+        resourceHandler.setResourceBase("public");
 
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[]{resource_handler, context});
+        handlers.setHandlers(new Handler[]{resourceHandler, context});
         server.setHandler(handlers);
 
         server.start();
